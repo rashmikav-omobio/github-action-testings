@@ -1,0 +1,24 @@
+name: Test Self Hosted Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Show hostname
+        run: hostname
+
+      - name: Show current user
+        run: whoami
+
+      - name: Show working directory
+        run: pwd
+
+      - name: Create a test file
+        run: |
+          echo "GitHub Actions is running on $(hostname)" > github-test.txt
+          ls -l
+          cat github-test.txt
